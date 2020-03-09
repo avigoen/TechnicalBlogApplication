@@ -32,4 +32,17 @@ public class PostService {
         postRepository.createPost(newPost);
         System.out.println("New Post : " + newPost);
     }
+
+    public Post getPost(Integer postId) {
+        return postRepository.getPost(postId);
+    }
+
+    public void updatePost(Post updatedPost) {
+        updatedPost.setDate(new Date());
+        postRepository.updatePost(updatedPost);
+    }
+
+    public void deletePost(Integer postId){
+        postRepository.deletePost(postId);
+    }
 }
