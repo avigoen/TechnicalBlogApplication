@@ -11,8 +11,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean login(Users users) {
-        return users.getUsername().equals("validuser");
+    public Users login(Users users) {
+        Users existingUser = userRepository.checkUser(users.getUsername(), users.getPassword());
+        if (existingUser == null) {
+            return null;
+        }
+        return existingUser;
     }
 
     public void registerUser(Users newUser) {
