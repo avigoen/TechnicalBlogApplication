@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import technicalblog.model.Post;
 import technicalblog.service.PostService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -19,7 +19,9 @@ public class PostController {
     @RequestMapping("posts")
     public String getUserPosts(Model model) {
 
-        ArrayList<Post> posts = postService.getOnePost();
+        List<Post> posts = postService.getAllPosts();
+//        Post latestPost = postService.getOnePost();
+//        posts.add(latestPost);
         model.addAttribute("posts", posts);
         return "posts";
     }
