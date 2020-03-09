@@ -13,11 +13,16 @@
 
 <form method="post" th:action="@{/posts/create}">
     <div>Post Title:</div>
-    <div><input type="text" id="title" name="title" /></div>
+    <div><input type="text" id="title" name="title"/></div>
 
     <div>Description:</div>
 
     <div><textarea rows="7" cols="100" name="body"></textarea></div>
+
+    <div>
+        <input type="checkbox" name="SpringBlog" value="Spring Blog"/> Spring Blog
+        <input type="checkbox" name="JavaBlog" value="Java Blog"/> Java Blog
+    </div>
 
     <div>
         <input type="submit" value="Submit"/>

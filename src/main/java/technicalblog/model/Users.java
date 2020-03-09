@@ -18,6 +18,19 @@ public class Users {
 
     @Column(name = "password")
     private String password;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "profile_id")
+    private UserProfile profile;
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Post> posts = new ArrayList<>();
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
     public UserProfile getProfile() {
         return profile;
@@ -26,10 +39,6 @@ public class Users {
     public void setProfile(UserProfile profile) {
         this.profile = profile;
     }
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "profile_id")
-    private UserProfile profile;
 
     public Integer getId() {
         return id;
