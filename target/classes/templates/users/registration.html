@@ -10,13 +10,22 @@
 
 <h2>Please Register:</h2>
 
-<form method="post" th:object="${Users}">
+<form th:action="@{/users/registration}" th:method="POST" th:object="${Users}">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username"/>
+    <input type="text" id="username" name="username" th:field="${Users.username}"/>
+
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password"/>
+    <input type="password" id="password" name="password" th:field="${Users.password}"/>
+
     <label for="fullname">Full Name:</label>
-    <input type="text" id="fullname" name="fullName"/>
+    <input type="text" id="fullname" name="fullName" th:field="${Users.profile.fullName}"/>
+
+    <label for="emailAddress">Email Address:</label>
+    <input type="text" id="emailAddress" name="emailAddress" th:field="${Users.profile.emailAddress}"/>
+
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" id="mobileNumber" name="mobileNumber" th:field="${Users.profile.mobileNumber}"/>
+
     <input type="submit" value="Register"/>
 </form>
 
